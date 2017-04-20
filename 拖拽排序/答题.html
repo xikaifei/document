@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="style-main.css" />
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="problem-box">
+				<div class="problem-title">
+					<h3>1.您的职能是什么？( 单选）<a href="javascript:" class="modify-option">修改选项</a></h3>
+					<p>职能即是公司职位能力的类别，例如：全面管理、技术开发与运维、市场和销售、产品与设计、客服、内容管理、电商运营、金融运营、支持职能等等（请最少填写6个职能）</p>
+				</div>
+				<div class="problem-option">
+					<ul class="option-box">
+						<li><label><input type="radio" name="1" title="全面管理"/>全面管理</label></li>
+						<li><label><input type="radio" name="1" title="技术开发与运维"/>技术开发与运维</label></li>
+						<li><label><input type="radio" name="1" title="市场和销售"/>市场和销售</label></li>
+						<li><label><input type="radio" name="1" title="产品与设计"/>产品与设计</label></li>
+						<li><label><input type="radio" name="1" title="客服"/>客服</label></li>
+						<li><label><input type="radio" name="1" title="内容管理"/>内容管理</label></li>
+					</ul>
+					<div class="modify-box">
+						<ul class="problem-modify"></ul>
+						<a href="javascript:" class="add">+ 新建选项</a>
+						<a href="javascript:" class="preservation">确定保存</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.dragsort-0.5.2.min.js"></script>
+		<script>
+			$(function() {
+				$(".problem-modify").dragsort({
+					dragSelector: "i",
+					placeHolderTemplate: "<li class='placeHolder'></li>"
+				});
+				$('.modify-option').click(function() {
+					$('.option-box,.modify-option').hide();
+					$('.modify-box').show();
+					$('.problem-modify').html('');
+					$('.option-box li input').each(function(i) {
+						var a = $(this).attr('title');
+						var data = $(this).attr('data');
+						if(data == 'add') {
+							$('.problem-modify').append('<li><i></i><input type="text" data="add"  title=' + a + ' value=' + a + '  /><span class="close">&times;</span></li>');
+						} else {
+							$('.problem-modify').append('<li><i></i><input type="text" title=' + a + ' value=' + a + ' /></li>');
+						}
+					})
+				})
+				$(document).on('click', '.close', function() {
+					$(this).parents('li').remove();
+				})
+				$('.add').click(function() {
+					$('.problem-modify').append('<li><i></i><input type="text" data="add" value="" placeholder="请输入公司职能" /><span class="close">&times;</span></li>');
+				})
+				$('.preservation').click(function() {
+					var a = 1;
+					var set = {}
+					var re = /select|update|delete|exec|count|’|"|=|;|>|<|%/i;
+					$('.problem-modify li input').each(function(i) {
+						var thisVal = $(this).val().trim();
+						if(thisVal == '') {
+							$(this).css('border-color', 'red');
+							$(this).focus();
+							a = 0;
+						} else {
+							$(this).css('border-color', '#ccc');
+						}
+						if(set[this.value]) {
+							set[this.value].css('border-color', 'red');
+							$(this).css('border-color', 'red');
+							$(this).focus();
+							a = 2;
+						} else {
+							set[this.value] = $(this);
+						}
+						if(re.test(thisVal)) {
+							$(this).css('border-color', 'red');
+							$(this).focus();
+							a = 3;
+						}
+					})
+					if(a == 1) {
+						$('.option-box').html('');
+						$('.option-box,.modify-option').show();
+						$('.modify-box').hide();
+						$('.problem-modify li input').each(function(x) {
+							var thiText = $(this).val().replace(/[ ]/g, '');
+							var data = $(this).attr('data');
+							if(data == 'add') {
+								$('.option-box').append('<li><label><input type="radio" data="add" name="1" title=' + thiText + '  />' + thiText + '</label></li>');
+							} else {
+								$('.option-box').append('<li><label><input type="radio" name="1" title=' + thiText + '  />' + thiText + '</label></li>');
+							}
+						})
+					}
+					if(a == 0) {
+						alert('公司职能不能为空')
+					}
+					if(a == 2) {
+						alert('公司职能不能相同');
+					}
+					if(a == 3) {
+						alert('请您不要在参数中输入特殊字符和SQL关键字！');
+					}
+				})
+			})
+		</script>
+	</body>
+
+</html>

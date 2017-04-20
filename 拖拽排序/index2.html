@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel='stylesheet' href='jquery-ui.min.css'/>
+		<link rel="stylesheet" href="style.css" />
+		<script src='modernizr.js'></script>
+		<title></title>
+	</head>
+
+	<body>
+		<div class="box">
+			<ul id="sortable">
+				<li><input type="text" placeholder="1"/></li>
+				<li><input type="text" placeholder="2"/></li>
+				<li><input type="text" placeholder="3"/></li>
+				<li><input type="text" placeholder="4"/></li>
+				<li><input type="text" placeholder="5"/></li>
+				<li><input type="text" placeholder="6"/></li>
+				<li><input type="text" placeholder="7"/></li>
+			</ul>
+			<a href="javavscript:" class="add">+ 新建选项</a>
+		</div>
+		<script src='jquery-1.11.1.min.js'></script>
+		<script src='jquery.ui.min.js'></script>
+		<script>
+			$(function() {
+				$("#sortable").sortable({
+					placeholder: "ui-sortable-placeholder"
+					
+				});
+				$('.add').click(function(){
+					var index=$('#sortable li').length+1;
+					$('#sortable').append('<li><input type="text"placeholder='+index+' /><span class="close">&times;</span></li>')
+					$('.close').click(function(){
+						$(this).parents('li').remove();
+						
+					})
+				})
+				
+			});
+		</script>
+	</body>
+
+</html>

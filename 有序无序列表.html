@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>有序列表</title>
+	<style type="text/css">
+	ul{
+		list-style: none;
+	}
+		.wrap{
+	width: 1200px;
+	margin: 50px auto;
+}
+h2{
+	font-size: 24px;
+	line-height: 300%;
+	color: #09c;
+}
+h3{
+	xtext-indent: 2em;
+	font-size: 20px;
+	line-height: 150%;
+}
+h3 span{
+	
+	font-weight: bold;
+}
+li{
+	font-size: 18px;
+	line-height: 200%;
+}
+.box{
+	margin-top: 20px;
+	padding: 15px 20px;
+	background: #f1f1f1;
+	border: 1px solid #ddd;
+}
+.number li{
+	counter-increment: numberlist
+}
+.number li:before{
+	content: counter(numberlist);
+	display: inline-block;
+	vertical-align: middle;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: #c00;
+	font-size: 14px;
+	margin-right: 10px;
+	color: #fff;
+	line-height: 24px;
+	text-align: center;
+}
+.custom_number li{
+	counter-increment: custom_list
+}
+.custom_number li:before,.custom_number li span{
+	content: "第"counter(custom_list)"章："
+}
+.letter_number li{
+	counter-increment: letter_list
+}
+.letter_number li:before,.letter_number li span{
+	content:counter(letter_list,upper-alpha)"、";
+}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<h2>有数字有序列表</h2>
+		<h3><span>注：</span>counter:序列名字，counter是计数器的意思,先定义计数器变量counter-increment:变量名，再需要调用计数器的地方用content:counter(变量名)</h3>
+		<div class="box number">
+			<ul>
+				<li><span></span>有序列表的第1行</li>
+				<li><span></span>有序列表的第2行</li>
+				<li><span></span>有序列表的第3行</li>
+				<li><span></span>有序列表的第4行</li>
+				<li><span></span>有序列表的第5行</li>
+				<li><span></span>有序列表的第6行</li>
+				<li><span></span>有序列表的第7行</li>
+			</ul>
+		</div>
+		<!-- 数字有序列表 end -->
+		<h2>自定义数字有序列表</h2>
+		<h3><span>注：</span>自定义的方式是在调用计数器的时候添加文本 形式如content:"文本"counter(变量名)"文本"。直接挨着用不需要空格、逗号</h3>
+		<div class="box custom_number">
+			<ul>
+				<li><span></span>自定义数字有序列表的第1行</li>
+				<li><span></span>自定义数字有序列表的第2行</li>
+				<li><span></span>自定义数字有序列表的第3行</li>
+				<li><span></span>自定义数字有序列表的第4行</li>
+				<li><span></span>自定义数字有序列表的第5行</li>
+				<li><span></span>自定义数字有序列表的第6行</li>
+				<li><span></span>自定义数字有序列表的第7行</li>
+			</ul>
+		</div>
+		<!-- 自定义数字有序列表 end -->
+		<h2>字母有序列表</h2>
+		<h3><span>注：</span>字母有序列表是在调用计数器的时候定义计数器的类型 形式如content:counter(变量名,类型)。例如此例的content:counter(letter_list,upper-alpha);</h3>
+		<div class="box letter_number">
+			<ul>
+				<li><span></span>自定义数字有序列表的第1行</li>
+				<li><span></span>自定义数字有序列表的第2行</li>
+				<li><span></span>自定义数字有序列表的第3行</li>
+				<li><span></span>自定义数字有序列表的第4行</li>
+				<li><span></span>自定义数字有序列表的第5行</li>
+				<li><span></span>自定义数字有序列表的第6行</li>
+				<li><span></span>自定义数字有序列表的第7行</li>
+			</ul>
+		</div>
+		<!-- 字母有序列表 end -->
+	</div>
+</body>
+</html>

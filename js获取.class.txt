@@ -1,0 +1,10 @@
+function $(ele){
+  if (document.querySelector){
+    return document.querySelector(ele)
+  } 
+}
+
+$('.d').innerHTML = 'hhhhhhhhhhh'
+
+
+<div class="d">123</div>

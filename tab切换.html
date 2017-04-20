@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+$(function(){
+	$(".hd li").click(function(){
+		  $(this).addClass("on")
+          $(this).siblings().removeClass("on");
+		  var num=$(".hd li").index(this)+1;
+		  $(".bd li:nth-child("+num+")").addClass("on");
+		  $(".bd li:nth-child("+num+")").siblings().removeClass("on");
+		})
+	})
+</script>
+<style type="text/css">
+*{ margin:0; padding:0; list-style:none;}
+.bg{ margin:50px auto; width:363px;}
+.bg .hd{ overflow:hidden; width:363px; background:#ececec; border-top:1px solid #ccc;border-left:#CCC 1px solid;}
+.bg .hd li{ float:left; height:30px; width:120px; line-height:30px; text-align:center; border-right:#CCC 1px solid;border-bottom:#CCC 1px solid;}
+.bg .bd li{ width:362px; height:360px; text-align:center; line-height:360px; border:#CCC 1px solid; border-top:0; display:none;}
+.bg .hd .on{ background:#fff;border-bottom-color:#fff;}
+.bg .bd .on{ display:block;}
+</style>
+</head>
+
+<body>
+<div class="bg">
+    <ul class="hd">
+        <li class="on">标题1</li>
+        <li>标题2</li>
+        <li>标题3</li>
+    </ul>
+    <ul class="bd">
+        <li class="on">内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+    </ul>
+</div>
+</body>
+</html>

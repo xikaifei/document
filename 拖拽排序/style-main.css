@@ -1,0 +1,36 @@
+*{margin:0;padding: 0;}
+ul,ol,li{list-style: none;}
+:focus{outline: none;}
+::-ms-clear, ::-ms-reveal{display: none;}
+body{font-size: 14px;font-family: "微软雅黑";color: #333;}
+input,textarea{font-family: "微软雅黑";}
+a{text-decoration: none;}
+.box{width:600px;margin:30px auto;box-shadow: 0 0 5px #ccc;border-radius: 5px;padding: 20px;}
+
+.problem-box{margin-bottom:20px}
+.problem-title h3{font-size: 16px;font-weight: normal;height: 30px;line-height: 30px;}
+.problem-title p{color: #999;padding:0 12px;}
+.modify-option{display: inline-block;height: 24px;width:60px;text-align: center;line-height: 24px;border:1px solid #35a6ea;border-radius: 5px;font-size: 12px;color:#35a6ea ;margin-left:10px;}
+.modify-option:hover{background: #35a6ea;color: #fff;}
+.problem-option{padding:10px 12px}
+.option-box li{color: #333;line-height: 30px;font-size:16px;}
+.option-box li label{cursor: pointer;}
+.option-box li label input{margin-right: 5px;}
+
+.modify-box{display: none;}
+.problem-modify{width: 350px;}
+.problem-modify li{width:302px;height: 34px;padding-left: 28px;margin-top:10px;position:relative;}
+.problem-modify li i{position: absolute;top: 0;left:0;width:28px;height: 34px;}
+.problem-modify li i:after{content: '';position: absolute;width:3px;height: 3px;background:#ccc;left:10px;top:4px;box-shadow: 0 6px 0 #ccc,0 12px 0 #ccc,0 18px 0 #ccc,0 24px 0 #ccc,6px 0 0 #ccc, 6px 6px 0 #ccc,6px 12px 0 #ccc,6px 18px 0 #ccc,6px 24px 0 #ccc;;}
+.problem-modify li input{width: 300px;height: 32px;border:1px solid #ccc;text-indent: 10px;color: #333;}
+.problem-modify li.placeHolder{background: #f3f3f3;width: 274px !important;margin-left:28px}
+.problem-modify li.placeHolder:after{display: none;}
+
+.modify-box .add{display: block;text-decoration: none;background:#ececec;color: #666;border: 1px solid #ccc;height: 32px;line-height: 32px;width: 100px;text-align:center;margin-top:10px;margin-left:28px;-wibkit-transition: .3s;-moz-transition: .3s;-o-transition: .3s;-ms-transition: .3s;transition: .3s;}
+.modify-box .add:hover{background:#35a6ea;border-color: #35a6ea;color: #fff;}
+
+.modify-box .close{color: #666;font-size:20px;text-align:center;width:34px;height:34px;line-height:34px;position: absolute;right: -34px;top:0;wibkit-transition: .3s;-moz-transition: .3s;-o-transition: .3s;-ms-transition: .3s;transition: .3s;}
+.modify-box .close:hover{color:#35a6ea; cursor: pointer ;}
+
+.preservation{display: block;text-decoration: none;background:#35a6ea;color: #fff ;border: 1px solid #35a6ea;height: 32px;line-height: 32px;width: 100px;text-align:center;margin-top:10px;margin-left:28px;position: relative;margin-top:30px}
+.preservation:after{content: '';position: absolute;width:100%;border-top:1px dashed #999;left:0;top:-15px;left:-16px;width:550px}

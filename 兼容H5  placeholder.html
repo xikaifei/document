@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			:focus {
+				outline: none;
+			}
+			
+			body {
+				padding: 50px;
+			}
+			
+			input {
+				border: 1px solid #ddd;
+				width: 100px;
+				height: 30px;
+				padding: 0 10px;
+			}
+			
+			input:focus {
+				
+				border-color: #999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="text" placeholder="请输入" value=""/>
+	</body>
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			if(!placeholderSupport()) { // 判断浏览器是否支持 placeholder
+				$('[placeholder]').focus(function() {
+					var input = $(this);
+					if(input.val() == input.attr('placeholder')) {
+						input.val('');
+						input.removeClass('placeholder');
+					}
+				}).blur(function() {
+					var input = $(this);
+					if(input.val() == '' || input.val() == input.attr('placeholder')) {
+						input.addClass('placeholder');
+						input.val(input.attr('placeholder'));
+					}
+				}).blur();
+			};
+		})
+		function placeholderSupport() {
+			return 'placeholder' in document.createElement('input');
+		}
+	</script>
+
+</html>

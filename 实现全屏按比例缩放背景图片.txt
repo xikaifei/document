@@ -1,0 +1,168 @@
+实现全屏按比例缩放背景图片
+
+
+
+帅气简单的CSS3方法
+
+首先我们要感谢CSS3的 backgroud-size 属性。我们只需要使用@html@定义，设置一个固定居中的背景，然后通过 background-size来调整，代码如下：
+html {
+   background: url(images/bg.jpg) no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+}
+
+
+
+
+如果要适应低版本的IE，需要添加一下代码，不过不是添加在 html 或者 body 中，而是定义到一个固定的@div@里，调整100%的width
+
+#fixed_div {
+   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
+}
+Safari 3+
+Chrome Whatever+
+IE 7+
+Opera 10+
+Firefox 3.6+
+
+
+
+
+
+
+只使用CSS方法之一
+
+使用 <img> 内联元素，设置一个@min-height@在浏览器垂直方向填充，然后设置100% width 在水平方向填充，同时为图片设置一个 min-width
+
+这里使用了 @media@来判断浏览器窗口是否小于图片大小，然后使用左移百分比和左边距固定值来保证无论如何图片都会居中，代码如下：
+
+
+
+img.bg {
+   /* 填充背景 */
+   min-height: 100%;
+   min-width: 1024px;
+ 
+   /* 设置按比例的缩放 */
+   width: 100%;
+   height: auto;
+	
+   /* 定位 */
+   position: fixed;
+   top: 0;
+   left: 0;
+}
+
+@media screen and (max-width: 1024px) { 
+   /* 具体到这个特定的图像 */
+   img.bg {
+     left: 50%;
+     margin-left: -512px;   /* 50% */
+   }
+}
+Safari / Chrome / Opera / Firefox 全部奏效
+IE6：工作的不是很好
+IE7：缩放太小的时候不居中，但是依然填充浏览器窗口
+IE9：良好运作 =:
+
+
+
+
+
+
+
+
+
+
+
+
+只使用CSS的第二种方法
+
+
+这种方案的原理是放一张图片在页面上，然后顶住左上角，使 min-width 和 min-height 都设置为100%，保证比例拉伸填充，代码如下:
+
+   <img src="images/bg.jpg" id="bg" alt="">
+
+#bg {
+   position: fixed; 
+   top: 0; 
+   left: 0; 
+	
+   /* 保持纵横比例 */
+   min-width: 100%;
+   min-height: 100%;
+}
+不过图片还没有居中，如果需要让图片居中，我们把它放到一个 div 里，将这个 div 设置为浏览器窗口的两倍，代码如下：
+
+   <div id="bg">
+      <img src="images/bg.jpg" alt="">
+   </div>
+
+#bg {
+   position: fixed; 
+   top: -50%; 
+   left: -50%; 
+   width: 200%; 
+   height: 200%;
+}
+#bg img {
+   position: absolute; 
+   top: 0; 
+   left: 0; 
+   right: 0; 
+   bottom: 0; 
+   margin: auto; 
+   min-width: 50%;
+   min-height: 50%;
+}
+Safari / Chrome / Firefox 不代表所有版本都非常奏效
+IE8+：如果你为这个图片设置了js效果，需要添加 width:auto;height:auto;
+Opera： 最好不要用这种方案 =:
+
+
+
+
+
+
+
+
+
+jQuery方法
+
+采用这个方案事情就变得简单一些（虽然代码量多了一些）原理很简单，主要是比较图片的长宽比和浏览器窗口的窗宽比；如果前者大于后者，则设置图片的 width 为100%，如果后者大于前者，则设置图片的 height 为100%，代码如下：
+
+   <img src="images/bg.jpg" id="bg" alt="">
+
+   #bg { position: fixed; top: 0; left: 0; }
+   .bgwidth { width: 100%; }
+   .bgheight { height: 100%; }
+jquery代码如下：
+
+ $(window).load(function() {    
+
+   var theWindow   = $(window),
+       $bg         = $("#bg"),
+       aspectRatio = $bg.width() / $bg.height();
+	    			    		
+   function resizeBg() {
+	if ((theWindow.width() / theWindow.height()) < aspectRatio ) {
+		$bg
+		   .removeClass()
+		   .addClass('bgheight');
+	} else {
+		$bg
+		   .removeClass()
+		   .addClass('bgwidth');
+	}
+   }
+   theWindow.resize(resizeBg).trigger("resize");
+});
+IE7+
+其他主流浏览器 =:
+
+
+
+

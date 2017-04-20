@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var d3=$("#d3");
+	var d2=$("#d2");
+	var d1=$("#d1");
+	$(d2).hide();
+	$(d1).mousemove(function(){
+		var x=event.offsetX;
+		var y=event.offsetY;
+		var a="相对坐标x:"+x+",Y:"+y+"<br>";
+		var x2=event.clientX;
+		var y2=event.clientY;
+		var a2="页面坐标x:"+x2+",Y:"+y2;
+		$(d3).show();
+		$(d3).empty().append(a+a2);
+	})
+	$(d1).click(function(){
+		var x=event.offsetX;
+		var y=event.offsetY;
+		var a="x:"+x+",Y:"+y;
+		
+		$(d2).show();
+		$(d2).css("top",y).css("left",x);
+		$(d2).empty().append(a);
+	})
+	$(d1).mouseout(function(){
+		$(d2).hide();
+	})
+})
+</script>
+<style>
+#d1{ width:500px; height:300px; background:#CCC; border:1px solid #666; position:relative; left:100px; top:100px; }
+#d2{ height:22px; display:block; line-height:22px; background:#FFF; border:1px solid #FF0; position:absolute; }
+#d3{ position:relative; left:100px; top:100px; }
+</style>
+</head>
+
+<body>
+<div id="d1">点击也可查看当前坐标<br>注意div有一个像素的边框
+<div id="d2"></div>
+</div>
+<div id="d3"></div>
+</body>
+</html>

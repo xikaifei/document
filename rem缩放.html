@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+<title>无标题文档</title>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<link href="http://m.3yx.com/css/yoyo/swiper-3.2.7.min.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+html,body,div,p,a,table,tr,img,td,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,b,i,em,span,input,select{ margin:0;padding:0;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box; font-family: "Microsoft YaHei",simsun,Arial,sans-serif,Mingliu,Verdana,Helvetica,Lucida;}
+.clrfix{zoom:1;}
+.clrfix:after{content:''; display:block; height:0; clear:both;}
+input,button{outline-style:none;}
+select, input, img, select {vertical-align: middle;}
+button{cursor:pointer; border:0;}
+dl,dt,dd,ul,ol{padding-left:0;list-style-type:none;}
+img{border:0; display:block}
+a:focus {outline:none;}
+em{font-style:normal;}
+a{text-decoration:none;color:#5b5a5a;}
+.fl{float:left}
+.fr{float:right}
+a:hover{color:#ff6a2f}
+h1,h2,h3,h4,h5,h6{font-size:.14rem; font-weight:normal}
+html{ font-size:100px;height:100%;}
+body{width:6.4rem;margin:0 auto;height:100%;background: #eeeeee;color: #666; position: relative;}
+.header{width:6.4em;height:.8rem;background:#64a628; position:relative}
+.header h1{width:3.6rem;padding:.1rem 0 .1rem .15rem;}
+.header .w_log{height: .6rem;width: .6rem;position: absolute;right: .15rem;top: .1rem;}
+.w_search{width:6.4rem;padding:.15rem; position:relative}
+.w_search input{width: 100%;height: .7rem;display: block;border-radius: .1rem;border: #d3d3d3 1px solid;text-indent: 10px;font-size: .26rem;padding-right: .6rem;}
+.w_search span{ position: absolute;width: .4rem;height: .4rem;top: 0.3rem;right: .3rem;cursor: pointer;}
+.entrance{background:#fff;padding:.08rem .075rem;font-size: .28rem;}
+.entrance li{margin:.075rem; float:left;}
+.entrance li a{ border-radius:.08rem;display:block;background:#4795ff;width:1.93rem;height:2rem;opacity:0;opacity:1\9;-webkit-animation-name:scale;-webkit-animation-duration:0.3s;-webkit-animation-fill-mode:forwards;-ms-animation-name:scale;-ms-animation-duration:0.3s;-ms-animation-fill-mode:forwards;
+animation-name:scale;animation-duration:0.3s;animation-fill-mode:forwards;
+-webkit-transition: 0.2s ease;-moz-transition: 0.2s ease;-ms-transition: 0.2s ease;-o-transition: 0.2s ease;transition: 0.2s ease; color:#fff}
+.entrance li:nth-child(2) a{background:#ff6864;width:4.017rem;-webkit-animation-delay:0.2s;-ms-animation-delay:0.2s;animation-delay:0.2s;}
+.entrance li:nth-child(3) a{background:#64a628;-webkit-animation-delay:0.3s;-ms-animation-delay:0.3s;animation-delay:0.3s;}
+.entrance li:nth-child(4) a{background:#01caa2;-webkit-animation-delay:0.4s;-ms-animation-delay:0.4s;animation-delay:0.4s;}
+.entrance li:nth-child(5) a{background:#ff9933;-webkit-animation-delay:0.5s;-ms-animation-delay:0.5s;animation-delay:0.5s;}
+.swiper-container  .swiper-slide a img{width:6.4rem}
+.topNews{ position:relative;margin:.15rem;border:1px solid #ffc59d;background:#fff;font-size:.22rem;padding:.05rem .15rem;line-height:180%}
+
+.w_footer{font-size:.22rem;background:#fff; text-align:center; line-height:180%; padding:.2rem 0}
+.w_foot a{margin:.05rem;font-size:.2rem}
+@-webkit-keyframes scale{0%{opacity:0;-webkit-transform:scale(0.6,0.6);}100%{opacity:1;-webkit-transform:scale(1,1);}}
+@-ms-keyframes scale{0%{opacity:0;-webkit-transform:scale(0.6,0.6);}100%{opacity:1;-webkit-transform:scale(1,1);}}
+@keyframes scale{	0%{opacity:0;-webkit-transform:scale(0.6,0.6);}	100%{opacity:1;-webkit-transform:scale(1,1);}}
+
+.entrance li a span{width: 1.5rem;height: .9rem;background: url(http://m.3yx.com/images/entrance_icon.png) no-repeat;background-size: 80%;background-position: center 0;display: block;margin: 0 auto;text-align: center;line-height: 2.3rem;position: relative;top: .3rem;}
+.entrance li:nth-child(2) a span{background-position: center -1rem;}
+.entrance li:nth-child(3) a span{background-position: center -2rem;}
+.entrance li:nth-child(4) a span{background-position: center -3rem;}
+.entrance li:nth-child(5) a span{background-position: center -4rem;}
+@media screen and (max-width:481px){
+	html{font-size:75px}
+}
+@media screen and (max-width:416px){
+	html{font-size:64.6875px}
+}
+@media screen and (max-width:376px){
+	html{font-size:58.5938px}
+}
+@media screen and (max-width:321px){
+	html{font-size:50px}
+}
+</style>
+<script type="text/javascript">
+
+function hehe(){
+	var window_w=$(window).width();
+	var num=window_w/6.4;	
+	if(window_w>640){
+		$("html").css("font-size","100px");
+	}
+	else if(window_w<320){
+		$("html").css("font-size","50px");
+	}else{
+		$("html").css("font-size",num+"px");
+	}
+}
+$(function(){
+		hehe();
+	// 焦点图滚动
+		var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        loop: true,
+        centeredSlides: true,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false
+		})
+	
+})
+$(window).resize(function(e) {
+   hehe();
+});
+
+</script>
+</head>
+<body>
+
+<div class="header clrfix">
+	<h1><a href="javascript:"><img src="http://m.3yx.com/images/wap_logo.png" width="100%"/></a></h1>
+    <a href="javascript:" class="w_log"><img src="http://m.3yx.com/images/w_log.png" width="100%"/></a>
+</div>
+<div class="swiper-container">
+	    <div class="swiper-wrapper">	    	
+	        <div class="swiper-slide">
+	        	<a href="javascript:">
+	        		<img src="http://imgcdn.3yx.com/3yx/other/20150616113244.jpg"/>
+	        	</a>
+	        </div>	        
+	        
+	        <div class="swiper-slide">
+	        	<a href="javascript:">
+	        		<img src="http://imgcdn.3yx.com/3yx/other/20150616113327.jpg"/>
+	        	</a>
+	        </div>	        
+	        
+	        <div class="swiper-slide">
+	        	<a href="javascript:">
+	        		<img src="http://imgcdn.3yx.com/3yx/other/20150616113358.jpg"/>
+	        	</a>
+	        </div>
+	   </div>
+	    <!-- 如果需要分页器 -->
+	   <div class="swiper-pagination"></div>
+</div>
+<div class="w_search">
+        <input type="text" id="findGameData" placeholder="搜索网游和手游游戏名称，拼音简称">
+        <span><img src="http://m.3yx.com/images/w_search.png" width="100%"></span>
+</div>
+<ul class="entrance clrfix">
+	<li><a href="javascript:"><span>购买首充号</span></a></li>
+    <li><a href="javascript:"><span>网络游戏</span></a></li>
+    <li><a href="javascript:"><span>手游充值</span></a></li>
+    <li><a href="javascript:"><span>点卡充值</span></a></li>
+    <li><a href="javascript:"><span>QQ充值</span></a></li>
+</ul>
+
+<div class="topNews">警惕:3YX点卡销量均真实有效,任何以"兼职" "刷信誉" "做任务" "缴纳保证金"为借口的均属诈骗行为,谨防上当！</div>
+
+<div class="w_footer">
+	<div class="w_foot">	      
+	    <a href="javascript:">登录</a>|
+        <a href="javascript:">注册</a>| 	    
+        <a href="javascript:">帮助</a>|
+        <a href="javascript:">电脑版</a>
+    </div>
+    <p>Copyright &copy; 2012-2015  陕西绝顶人峰网络科技有限公司</p>
+    <p>陕ICP备13002508号-1</p>
+</div>
+
+<script src="http://m.3yx.com/js/yoyo/swiper-3.2.7.min.js" type="text/javascript"></script>
+<script src="http://m.3yx.com/js/jquery.lazyload.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="plug/bootstrap3/bootstrap.min.css"/>
+		<script src="plug/jquery/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="plug/datetimepicker/moment.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plug/datetimepicker/daterangepicker.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			:focus{outline: none;}
+			.date-box{padding:50px;}
+			.dropdown-menu{padding:10px;}
+			.daterangepicker_input{display: none;}
+			.calendar{float: left;margin: 10px;}
+			.date-box .date-range{width: 186px;height: 35px;padding:0 10px;border:1px solid #ddd;font-size:14px;}
+			.table-condensed>tbody>tr>td{cursor: pointer;width: 34px;height: 30px;text-align: center;line-height: 30px;padding:0;}
+			button{width: 80px;margin-right: 10px;}
+			.table-condensed>tbody>tr>td.active{background: #0088CC;color: #fff;}
+			.off{color: #ccc;}
+			.in-range{background: #eee;}
+		</style>
+	</head>
+	<body>
+		<div class="date-box">
+			<input type="text" class="date-range" placeholder="请选择日期区间"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		 //日期区间选择
+    $(".date-range").daterangepicker(
+        {
+            format: 'YYYY-MM-DD',
+            autoUpdateInput: false,
+            locale: {
+                cancelLabel: 'Clear'
+            },
+            endDate: new Date(),
+            maxDate: new Date(),
+            locale: {
+                applyLabel: '确认',
+                cancelLabel: '取消',
+                fromLabel: '从',
+                toLabel: '到',
+                weekLabel: 'W',
+                customRangeLabel: 'Custom Range',
+                daysOfWeek: ["日", "一", "二", "三", "四", "五", "六"],
+                monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+            }
+        });
+    $('.date-range').on('apply.daterangepicker', function (ev, picker) {
+        $(this).val(picker.startDate.format('YYYY-MM-DD') + ' / ' + picker.endDate.format('YYYY-MM-DD'));
+        $('#searchform').submit();
+    });
+    $('.main').scroll(function () {
+        var date = $('.date-range').offset().top;
+        $('.daterangepicker').css('top', date + 41)
+    });
+	</script>
+</html>

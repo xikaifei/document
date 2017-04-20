@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+ </head>
+ <body>
+	<div id="" class="">
+		<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li style="border:none;"></li>
+	</ul>
+	<span><input  maxlength=1/></span>
+	</div>
+ </body>
+</html>
+<style type="text/css">
+	*{padding:0;font-family:MicroSoft Yahei;}
+	ul{width:179px;height:17px;border:solid 1px #c9c9c9;padding:6px 0;border-radius: 2px;}
+	li{list-style:none;height:17px;width:29px;border-right:solid 1px #c9c9c9;float:left;line-height:17px;text-align:center;color:#333;font-weight:bold;}
+	div{position:relative;}
+	div span{position:absolute;left:0;top:0;height:29px;width:29px;box-shadow: 0 0 4px #69AEE7;border:solid 1px #69AEE7;overflow:hidden;display:none;;}
+	div span input{margin:0;padding:0;border:none;width:129px;height:29px;line-height:29px;
+	filter: alpha(opacity=0);opactiy:0;outline:none;margin-left:-100px}
+</style>
+<script type="text/javascript">
+<!--
+	var flag=0;
+	var $li =$("ul li");
+	
+	$("input").keyup(function(e){
+		if(e.keyCode==8){
+			$li.eq(flag).html("");
+			flag--;
+			if(flag>=0){
+				$(this).parent().stop(true).animate({left:flag*30},100);
+			}else{
+				flag=0;
+			}
+			
+		}else if(e.keyCode==27){
+			$(this).parent().hide();
+		}
+		else{
+			$li.eq(flag).html("●");
+			this.value="";
+			flag++;
+			if(flag<6)
+				$(this).parent().stop(true).animate({left:flag*30},100);
+			else{
+				$(this).parent().hide();
+				flag=5;
+			}
+		}
+	})
+	$("ul").click(function(){
+	
+			$("span").show().css({left:(flag)*30}).find("input").focus();
+			$li.eq(flag).html("");
+	})
+//-->
+</script>

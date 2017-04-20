@@ -1,0 +1,6 @@
+*{margin: 0;padding: 0;}
+html,body{height: 100%;}
+#wrapper{width: 100%;height: 100%;position: relative;}
+
+#thelist p{background: #ccc;margin: 10px 0;height: 300px;}
+

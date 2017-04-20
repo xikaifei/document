@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="js/select2/select2.min.css"/>
+		<style type="text/css">
+			*{padding: 0;margin: 0;font-size: 14px;}
+			ul,li{list-style: none;}
+			:focus{ outline: none;}
+			input{width: 180px;height: 28px;border: 1px solid #ddd;padding-left: 10px;}
+			div{margin: 30px auto;position: relative;width: 190px;}
+			div ul{ position: absolute;top:29px;left: 0;border: 1px solid #ddd;width: 100%;border-top:none}
+			div ul li{padding:5px 10px;cursor: pointer;display: none;}
+			div ul li:hover{background: #ddd;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<input type="text" value="" placeholder=""/>
+			<ul>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$.ajax({
+				type:"get",
+				url:"data.json",
+				async:true,
+				success:function(v){
+					for(var i=0;i<v.data.length;i++){
+						$("div ul").append("<li data="+v.data[i].id+">"+v.data[i].name+"</li>")
+						$("ul li").click(function(){
+							$("input").val($(this).text()).attr("data",$(this).attr("data"));
+							$("div ul li").hide()
+						})
+					}
+				}
+			})
+			$("input").keyup(function(){
+				var Text="";
+				var val=$(this).val();
+				 if(val!=Text&&val!=""){
+		            $("li").hide();
+		            $("li:contains('"+val+"')").show();
+		       	 Text=val;
+		        }else{
+		        	$("li").hide();
+		        }
+			})
+	})
+	</script>
+	
+</html>

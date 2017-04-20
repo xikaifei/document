@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<span>上篇向大家介绍完了基础功能篇，这次分享的是Chrome开发工具中最有用的面板Sources。  Sources面板几乎是我最常用到的Chrome功能面板，也是在我看来决解一般问题的主要功能面板。通常只要是开发遇到了js报错或者其他代码问题，在审视一遍自己的代码而一无所获之后，我首先就会打开Sources进行js断点调试，而它也几乎能解决我80%的代码问题。Js断点这个功能让人兴奋不已，在没有js断点功能，只能在IE（万恶的IE）中靠alert弹出窗口调试js代码的时代（特别alert一个object根本不会理你），那样的开发环境对于前端程序员来说简直是一场噩梦。本篇文章讲会介绍Sources的具体用法，帮助各位在开发过程中够愉快地调试js代码，而不是因它而发疯。</span>
+			<a href="javascritp:">[阅读全文]</a>			
+		</div>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script>
+			$(function(){
+				var maxNum=100;
+				var txtNum=$("span");
+				var tip=$("a");
+				if(txtNum.text().length>=maxNum){
+					txtNum.html(txtNum.text().substring(0,maxNum)+"...")
+				}if(txtNum.text().length<maxNum){
+					tip.hide()
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+   <script language="javascript" type="text/javascript">
+        function getSelectValue(obj) {
+            var sValue = obj.options[obj.options.selectedIndex].value; //这是取值
+            var sText = obj.options[obj.options.selectedIndex].innerHTML; //这是取文本内容
+            document.getElementById("selectValue").innerHTML = sText + "，他的值为：" + sValue; //测试输出
+        }
+    </script>
+</head>
+<body>
+
+
+ <select id="Select1" onchange="getSelectValue(this);">
+        <option value="1">第一项</option>
+        <option selected value="2">第二项(默认选中)</option>
+        <option value="3">第三项</option>
+        <option value="4">第四项</option>
+    </select>
+    
+    <br /><br /><br />您选择的是：
+    <span id="selectValue"></span>
+    
+
+</body>
+
+ 
+</html>

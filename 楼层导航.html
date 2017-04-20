@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src='http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js'></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none
+			}
+			
+			li {
+				margin-right: 100px;
+				margin-left: 100px;
+				height: 500px;
+				border: 1px solid #ddd;
+				font-size: 30px;
+				text-align: center;
+			}
+			
+			div {
+				position: fixed;
+				top: 50%;
+				left: 10px;
+				margin-top: -120px;
+			}
+			
+			div p {
+				width: 60px;
+				height: 30px;
+				background: #ccc;
+				border-top: 1px solid #fff;
+				text-align: center;
+				line-height: 30px;
+				cursor: pointer;
+			}
+			
+			div p.on {
+				background: #666;
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li style="height:300px">1</li>
+			<li style="height:400px">2</li>
+			<li style="height:1000px">3</li>
+			<li style="height:500px">4</li>
+			<li style="height:800px">5</li>
+			<li style="height:300px">6</li>
+			<li style="height:800px">7</li>
+			<li style="height:1200px">8</li>
+		</ul>
+		<div>
+			<p>1楼</p>
+			<p>2楼</p>
+			<p>3楼</p>
+			<p>4楼</p>
+			<p>5楼</p>
+			<p>6楼</p>
+			<p>7楼</p>
+			<p>8楼</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$('div p').click(function() {
+			var index = $(this).index();
+			var scrolltop = $('ul li').eq(index).offset().top;
+			$('html,body').stop(false).animate({ scrollTop: scrolltop }, 200);
+		})
+		/*$(window).scroll(function() {
+			var top = $(this).scrollTop()
+			$('ul li').each(function(i) {
+				var h = $(this).offset().top;
+				console.log(top)
+				if(top >= h) {
+					$('p').eq(i).addClass('on').siblings().removeClass('on');
+				}
+			})
+		})*/
+		var arr=[];
+		$('ul li').each(function(i){
+			arr[i]=$(this).offset().top
+		})
+		$(window).scroll(function(){
+			var top = $(this).scrollTop()
+			for(var i=0;i<arr.length;i++){
+				if(top >= arr[i]){
+					$('p').eq(i).addClass('on').siblings().removeClass('on');
+				}
+			}
+		})
+	</script>
+
+</html>

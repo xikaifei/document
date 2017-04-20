@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.5/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="validator/validator.min.css" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			ul {
+				padding: 20px;
+				width: 300px;
+			}
+			
+			button {
+				margin-left: 20px;
+				width: 80px;
+			}
+			input,select{border-radius: 0 !important;}
+		</style>
+	</head>
+
+	<body>
+		<form id="formBox" method="post" action="">
+			<ul>
+				<li class="form-group">
+					<input type="text" class="form-control" name="inputA" />
+				</li>
+				<li class="form-group">
+					<input type="text" class="form-control" name="inputB" />
+				</li>
+				<li class="form-group">
+					<input type="text" class="form-control" name="inputC" />
+				</li>
+				<li class="form-group">
+					<select name="selectA" class="form-control">
+						<option value="">请选择</option>
+						<option value="1">111111</option>
+						<option value="2">222222</option>
+					</select>
+				</li>
+				<li class="form-group">
+					<select name="selectB" class="form-control">
+						<option value="1">111111</option>
+						<option value="2">222222</option>
+					</select>
+				</li>
+			</ul>
+			<button type="submit" id="subBtn">提交</button>
+		</form>
+	</body>
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="validator/validator.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(function() {
+			$('#formBox').bootstrapValidator({
+				feedbackIcons: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					'inputA': {
+						validators: {
+							notEmpty: {
+								message: '必填项'
+							}
+						}
+					},
+					'inputB': {
+						validators: {
+							notEmpty: {
+								message: '必填项'
+							}
+						}
+					},
+					'inputC': {
+						validators: {
+							notEmpty: {
+								message: '必填项'
+							}
+						}
+					},
+					'selectA': {
+						validators: {
+							notEmpty: {
+								message: '必填项'
+							}
+						}
+					},
+					'selectB': {
+						validators: {
+							notEmpty: {
+								message: '必填项'
+							}
+						}
+					}
+				}
+			}).on('success.form.bv', function(e) {
+	        	// Prevent form submission
+	            e.preventDefault();
+	        }); 
+			$("#subBtn").on("click", function() {
+				var bootstrapValidator = $("#formBox").data('bootstrapValidator').validate();
+				console.log(bootstrapValidator.isValid());
+				return false;
+				
+			});
+		})
+	</script>
+
+</html>

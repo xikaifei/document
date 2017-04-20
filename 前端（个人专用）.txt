@@ -1,0 +1,307 @@
+<link rel="shortcut icon" href="fav.ico">
+Mozilla内核　　 css前缀-moz;
+
+WebKit内核　　 css前缀-webkit ;  
+
+Opera 内核 　　css前缀 -o ;
+
+Trident内核　　css前缀 -ms ;  
+ 
+
+Trident 内核（Windows）
+IE6、IE7、IE8（Trident 4.0）、IE9（Trident 5.0）、IE10（Trident 6.0）；  世界之窗、 360安全浏览器、傲游；搜狗浏览器；腾讯TT；阿云浏览器（早期版本）、百度浏览器（早期版本）、瑞星安全浏览器、Slim Browser； GreenBrowser、爱帆浏览器（12 之前版本）、115浏览器、155浏览器； 闪游浏览器、N氧化碳浏览器、糖果浏览器、彩虹浏览器、瑞影浏览器、勇者无疆浏览器、114浏览器、蚂蚁浏览器、飞腾浏览器、速达浏览器、佐罗浏览器
+
+Gecko（跨平台）
+Mozilla Firefox、Mozilla SeaMonkey、Epiphany（早期版本）、Flock（早期版本）、K-Meleon
+
+KHTML（Linux）
+Konqueror
+
+WebKit（跨平台）
+Apple Safari (Win/Mac/iPhone/iPad)、Symbian手机浏览器、Android 默认浏览器
+
+Chromium（跨平台）
+Google Chrome、Chromium、SRWare Iron、Comodo Dragon 
+
+Presto（跨平台）
+Opera
+
+
+Trident/Gecko双核浏览器 
+Sleipnir、Avant 12（Orca）
+
+Trident/WebKit双核浏览器 
+360极速浏览器、世界之窗浏览器极速版、傲游3搜狗浏览器3、QQ浏览器、枫树浏览器、快快浏览器、百度浏览器、阿云浏览器（后期版本）、太阳花浏览器
+--------------------------------------CSS3   transition   过渡--------------------------------------
+
+transition:all 0 ease 0  /*默认值*/
+
+
+transition-property     /*规定设置过渡效果的 CSS 属性的名称。*/
+          none     	/*没有属性会获得过渡效果。*/
+          all	        /*所有属性都将获得过渡效果。*/
+          property	/*定义应用过渡效果的 CSS 属性名称列表，列表以逗号分隔。*/
+
+transition-duration     /*规定完成过渡效果需要多少秒或毫秒。*/
+          time          /* 规定完成过渡效果需要花费的时间（以秒或毫秒计）。默认值是 0，意味着不会有效果。*/
+
+transition-timing-function   /*规定速度效果的速度曲线。*/
+          linear	     /*规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）。*/
+          ease	             /*规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）。*/
+          ease-in	     /*规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）。*/
+          ease-out	     /* 规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）。*/
+          ease-in-out	     /*规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）。*/
+          cubic-bezier(n,n,n,n) 在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。*/
+
+transition-delay	     /*定义过渡效果何时开始*/
+
+          time               /*规定在过渡效果开始之前需要等待的时间，以秒或毫秒计。*/
+
+
+
+--------------------------------------CSS3   渐变--------------------------------------
+
+background:-webkit-linear    -   gradient( top   left    ,     #FFF ,         #c21010);
+                               /*渐变类型*/       /*方向*/      /*起始颜色*/   /*结束颜色*/
+
+                              linear－线性渐变
+                              radisl－中心渐变
+
+http://www.zhangxinxu.com/wordpress/2011/04/小tipcss3下条纹方格斜纹背景的实现/
+http://www.css88.com/tool/css3Preview/Linear-Gradients.html               /*CSS3渐变在线生成*/
+
+background:-webkit-gradient(linear ,10% 10%，100% 100%,color-stop(0.14,rgb(255,0,0)),color-stop(0.5,rgb(255,255,0)),color-stop(1,rgb(0,0,255)) );
+             第一个参数：表示的是渐变的类型linear线性渐变
+             第二个参数：分别对应x，y方向渐变的起始位置
+             第三个参数：分别对应x，y方向渐变的终止位置
+             第四/五/N个参数：设置渐变的位置及颜色
+             第二种写法：这种写法比较简单，而且效果比较自然
+             background:-webkit-gradient(linear, 0 0, 0 100%, from(＃2074af), to(＃2c91d2));
+             第一个参数：表示的是渐变的类型
+                                   linear线性渐变
+             第二个参数：分别对应x，y方向渐变的起始位置
+             第三个参数：分别对应x，y方向渐变的终止位置
+             第四个参数：设置了起始位置的颜色
+             第五个参数：设置了终止位置的颜色
+        Mozilla浏览器
+            (1)第一种写法：
+               background:-moz-linear-gradient(10 10 90deg,rgb(25,0,0) 14%,rgb(255,255,0) 50%, rgb(0,0,255) 100%);
+               第一个参数：设置渐变起始位置及角度
+               第二/三/四/N个参数：设置渐变的颜色和位置
+            (2)第二种写法：这种写法比较简单，而且效果比较自然
+               background:-moz-linear-gradient(top, ＃FFC3C8,＃FF9298);
+               第一个参数：设置渐变的起始位置
+               第二个参数：设置起始位置的颜色
+               第三个参数：设置终止位置的颜色
+
+--------------------------------------CSS选择器--------------------------------------
+p:nth-child(1) 　　/* 选取第一个Ｐ元素*/
+p:first-child          /* 选取第一个Ｐ元素*/
+p:last-child           /* 选取最后一个Ｐ元素*/
+
+
+
+
+--------------------------------------赋值------------------------------------------
+for(var i=0;i<51;i++){              //循环赋值
+       $("#selectid1").append("<option>"+i+"</option>");  
+		}
+
+
+---------------------------------------取值------------------------------------------
+$("#selectid1").find("option:selected").text();　/*下拉菜单*/
+$(".bj div").index(this)+1　　　　　　　　　　/*当前div的索引*/
+$("#unit").offset().left;　　　　　　　　　　　/*#unit向右移动的值*/
+document.documentElement.scrollTop||document.body.scrollTop;　/*滚动条下划的高度*/
+
+
+---------------------------------------JS事件------------------------------------------
+window.onload=function(){ }  //窗体加载
+window.onresize = function(){}   //窗体大小改变
+window.onscroll=function() {}   //拖动滚动条
+
+
+
+---------------------------jquery 如何判断div是否隐藏------------------------------
+var temp= $("#test").is(":hidden");//是否隐藏
+var temp1= $("#test").is(":visible");//是否可见
+
+
+
+
+
+
+<!--[if !IE]><!--> 除IE外都可识别 <!--<![endif]-->
+<!--[if IE]> 所有的IE可识别 <![endif]-->
+<!--[if IE 6]> 仅IE6可识别 <![endif]-->
+<!--[if lt IE 6]> IE6以及IE6以下版本可识别 <![endif]-->
+<!--[if gte IE 6]> IE6以及IE6以上版本可识别 <![endif]-->
+<!--[if IE 7]> 仅IE7可识别 <![endif]-->
+<!--[if lt IE 7]> IE7以及IE7以下版本可识别 <![endif]-->
+<!--[if gte IE 7]> IE7以及IE7以上版本可识别 <![endif]-->
+<!--[if IE 8]> 仅IE8可识别 <![endif]-->
+<!--[if IE 9]> 仅IE9可识别 <![endif]-->
+
+
+截字省略号 
+
+.hh { -o-text-overflow:ellipsis;  
+ text-overflow:ellipsis;  
+ white-space:  
+ nowrapoverflow:hidden;  
+ } 
+
+
+
+
+
+
+vertical-align:text-top
+
+
+
+
+
+<div id="test">
+
+<div></div>
+
+<div></div>
+
+</div>
+
+<script>
+
+function dom() {
+
+var s= document.getElementById("test");
+
+del_ff(s);    //清理空格
+
+var chils= s.childNodes;  //得到s的全部子节点
+
+var par=s.parentNode;   //得到s的父节点
+
+var ns=s.nextSbiling;   //获得s的下一个兄弟节点
+
+var ps=s.previousSbiling;  //得到s的上一个兄弟节点
+
+var fc=s.firstChild;   //获得s的第一个子节点
+
+var lc=s.lastChile;   //获得s的最后一个子节点
+
+}
+
+</script>
+
+下面介绍JQUERY的父，子，兄弟节点查找方法
+
+jQuery.parent(expr)  找父亲节点，可以传入expr进行过滤，比如$("span").parent()或者$("span").parent(".class")
+
+jQuery.parents(expr),类似于jQuery.parents(expr),但是是查找所有祖先元素，不限于父元素
+
+jQuery.children(expr).返回所有子节点，这个方法只会返回直接的孩子节点，不会返回所有的子孙节点
+
+jQuery.contents(),返回下面的所有内容，包括节点和文本。这个方法和children()的区别就在于，包括空白文本，也会被作为一个
+
+jQuery对象返回，children()则只会返回节点
+
+jQuery.prev()，返回上一个兄弟节点，不是所有的兄弟节点
+
+jQuery.prevAll()，返回所有之前的兄弟节点
+
+jQuery.next(),返回下一个兄弟节点，不是所有的兄弟节点
+
+jQuery.nextAll()，返回所有之后的兄弟节点
+
+jQuery.siblings(),返回兄弟姐妹节点，不分前后
+
+jQuery.find(expr),跟jQuery.filter(expr)完全不一样。jQuery.filter()是从初始的jQuery对象集合中筛选出一部分，而jQuery.find()
+
+的返回结果，不会有初始集合中的内容，比如$("p"),find("span"),是从<p>元素开始找<span>,等同于$("p span")
+
+$(this).addClass("num_on")
+$(this).siblings().removeClass("num_on");
+
+
+
+
+
+
+/*--------------------------各种高宽---------------------------------*/
+
+
+<script type="text/javascript"> 
+$(document).ready(function(){ 
+alert(document.body.clientWidth);        //网页可见区域宽(body)
+
+alert(document.body.clientHeight);       //网页可见区域高(body)
+
+alert(document.body.offsetWidth);       //网页可见区域宽(body)，包括border、margin等
+
+alert(document.body.offsetHeight);      //网页可见区域宽(body)，包括border、margin等
+
+alert(document.body.scrollWidth);        //网页正文全文宽，包括有滚动条时的未见区域
+
+alert(document.body.scrollHeight);       //网页正文全文高，包括有滚动条时的未见区域
+
+alert(document.body.scrollTop);           //网页被卷去的Top(滚动条)
+
+alert(document.body.scrollLeft);           //网页被卷去的Left(滚动条)
+
+alert(window.screenTop);                     //浏览器距离Top
+
+alert(window.screenLeft);                     //浏览器距离Left
+
+alert(window.screen.height);                //屏幕分辨率的高
+
+alert(window.screen.width);                 //屏幕分辨率的宽
+
+alert(window.screen.availHeight);          //屏幕可用工作区的高
+
+alert(window.screen.availWidth);           //屏幕可用工作区的宽
+
+ 
+
+Jquery
+
+alert($(window).height());                           //浏览器当前窗口可视区域高度
+
+alert($(document).height());                        //浏览器当前窗口文档的高度
+
+alert($(document.body).height());                //浏览器当前窗口文档body的高度
+
+alert($(document.body).outerHeight(true));  //浏览器当前窗口文档body的总高度 包括border padding margin
+
+alert($(window).width());                            //浏览器当前窗口可视区域宽度
+
+alert($(document).width());                        //浏览器当前窗口文档对象宽度
+
+alert($(document.body).width());                //浏览器当前窗口文档body的宽度
+
+alert($(document.body).outerWidth(true));  //浏览器当前窗口文档body的总宽度 包括border padding margin
+}) 
+</script>
+
+
+
+
+
+
+/*----------------------偏移------------------------*/
+
+计算元素位置和偏移量
+offset方法是一个很有用的方法，它返回包装集中第一个元素的偏移信息。默认情况下是相对body的偏移信息。结果包含 top和left两个属性。
+offset(options, results)
+options.relativeTo　　指定相对计 算偏移位置的祖先元素。这个元素应该是relative或absolute定位。省略则相对body。
+options.scroll　　是否把 滚动条计算在内，默认TRUE
+options.padding　　是否把padding计算在内，默认false
+options.margin 　　是否把margin计算在内，默认true
+options.border　　是否把边框计算在内，默认true
+
+
+/*-------------------IE安全策略-----------------------*/
+
+<!-- saved from url=(0014)about:internet -->
+
+

@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>所谓的响应式</title>
+<style type="text/css">
+*{ margin:0; padding:0;}
+ul,ol,li{ list-style:none;}
+a{ text-decoration:none;}
+.fl{ float:left}
+body{font: 12px/1.5 "Microsoft YaHei",simsun,Arial,sans-serif,Mingliu,Verdana,Helvetica,Lucida; }
+.clrfix:after{content:''; display:block; height:0; clear:both;}
+
+.nav_box{ width:100%; height:50px; background:#333; border-bottom:1px solid #000;}
+.nav_bg{ width:1000px; margin:0 auto;}
+.nav_txt li{ float:left; color:#FFF; line-height:50px; font-size:16px; padding-right:50px;}
+.nav_txt li a{ color:#FFF;}
+.nav_txt{ float:left}
+.nav_right{ float:right; color:#FFF; line-height:50px;}
+/*----------------------*/
+.banner_box{ width:100%; background:#4AC9F9; }
+.banner_bg{ width:1000px; margin:0 auto; text-align:center; color:#FFF}
+.banner_bg .hd{ font-size:60px; padding-top:50px;}
+.banner_bg .bd{ font-size:40px; padding-top:20px;}
+.banner_bg .btn{ display:block; width:200px; height:40px; border-radius:10px; background:#FDCCF5; text-align:center; line-height:40px; margin:0 auto; color:#FFF; font-size:20px; margin-top:20px;}
+.banner_bg .txt{ font-size:16px; padding-top:20px; padding-bottom:20px;}
+
+/*---------------------*/
+.div_hd{ text-align:center; width:100%; color:#666; margin-top:20px;}
+.div_hd .hehe{ font-size:32px}
+.div_hd .haha{ font-size:16px; border-bottom:#CCC 1px solid; padding-bottom:15px;  margin:5px auto}
+/*--------------------*/
+.main_box{ width:1020px; margin:50px auto;}
+.main_box ul{ float:left; width:213px; height:290px; padding:5px; border:#ccc 1px solid; margin-right:15px; margin-left:15px; margin-bottom:30px;color:#666;}
+.main_box ul li:first-child{ width:100%; height:80px; background:#FED7AB; text-align:center;}
+.main_box ul li:first-child div:first-child{ font-size:24px; height:50px; line-height:60px;}
+.main_box ul li:nth-child(2){ font-size:20px; text-align:center; line-height:50px; color:#0CF}
+.main_box ul li:last-child{ font-size:14px; line-height:180%}
+.main_box ul:nth-child(2) li:first-child{ background:#BFF9D3;}
+.main_box ul:nth-child(3) li:first-child{ background:#FDCCEF;}
+.main_box ul:nth-child(4) li:first-child{ background:#CCCC06;}
+.main_box ul:nth-child(9) li:first-child{ background:#D3C9FE;}
+.main_box ul:nth-child(6) li:first-child{ background:#C1FDFD;}
+.main_box ul:nth-child(7) li:first-child{ background:#D5FEA3;}
+.main_box ul:nth-child(12) li:first-child{ background:#CBFEF2;}
+.main_box ul:nth-child(11) li:first-child{ background:#DCD1E0;}
+/*------------------*/
+.foot_box{ width:100%; border-top:#CCC 1px solid;}
+.foot_bg{ width:1000px; margin:20px auto;}
+.foot_bg ul{ width:48%;}
+.foot_bg ul:first-child li:first-child{ font-size:24px;}
+.foot_bg ul:first-child li:last-child{ font-size:14px;}
+.foot_bg ul:last-child{ float:right; line-height:50px; font-size:18px}
+.foot_bg ul:last-child li{ float:right; margin-left:30px;}
+/*------------------*/
+.copy_box{ border-top:1px solid #CCC; height:60px; line-height:60px; text-align:center; font-size:14px}
+@media screen and (max-width:1000px){
+.nav_bg{ width:800px;}
+.banner_bg{ width:800px;}
+
+.banner_bg .hd{ font-size:50px; padding-top:40px;}
+.banner_bg .bd{ font-size:30px; padding-top:20px;}
+.main_box{ width:820px;}
+.main_box ul{width:230px; }
+.foot_bg{ width:800px;}
+}
+@media screen and (max-width:800px){
+.nav_bg{ width:600px;}
+.banner_bg{ width:600px;}
+.banner_bg .hd{ font-size:50px; padding-top:20px;}
+.banner_bg .bd{ font-size:30px; padding-top:10px;}
+.main_box{ width:620px;}
+.main_box ul{width:265px; }
+.foot_bg{ width:600px;}
+.nav_txt li{ display:none;}
+.nav_txt li:first-child{ display:block;}
+.nav_right{ padding-top:10px;}
+.nav_right li{ width:40px; height:3px; overflow:hidden; background:#FFF; margin-top:5px;}
+.foot_bg ul:last-child{ font-size:16px}
+.foot_bg ul:last-child li{margin-left:20px;}
+}
+@media screen and (max-width:600px){
+.nav_bg{ width:auto; padding:0 10px;}
+.banner_bg{ width:98%;}
+
+.banner_bg .hd{ font-size:40px; padding-top:20px;}
+.banner_bg .bd{ font-size:25px; padding-top:10px;}
+.main_box{ width:100%}
+.main_box ul{ padding:10px; width:auto; height:auto;}
+.foot_bg{ width:100%;}
+.nav_txt li{ display:none;}
+.div_hd .hehe{ font-size:22px;}
+.div_hd .haha{ font-size:12px}
+.nav_txt li:first-child{ display:block;}
+.nav_right{ padding-top:10px;}
+.nav_right li{ width:40px; height:3px; overflow:hidden; background:#FFF; margin-top:5px;}
+.foot_bg ul{ width:auto; padding:10px; float:none;}
+.foot_bg ul:last-child{ float:none;}
+.foot_bg ul:last-child li{ float:left}
+.copy_box{ font-size:12px;}
+}
+
+</style>
+</head>
+
+<body>
+<div class="nav_box"><!--导航-->
+    <div class="nav_bg clrfix">
+        <ul class="clrfix nav_txt">
+            <li><a href="#">WEBHEHE</a></li>
+            <li><a href="#">nav1</a></li>
+            <li><a href="#">nav2</a></li>
+            <li><a href="#">nav3</a></li>
+            <li><a href="#">nav4</a></li>
+            <li><a href="#">nav5</a></li>
+        </ul>
+        <ul class="nav_right">
+            <li></li>
+            <li>关于</li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+<div class="banner_box"><!--banner-->
+    <div class="banner_bg">
+        <div class="hd">我是标题</div>
+        <div class="bd">我是说明文字我是说明文字</div>
+        <a href="#" class="btn">我是按钮</a>
+        <div class="txt">呵呵呵呵呵呵呵</div>
+    </div>
+</div>
+
+<div class="div_hd">
+    <div class="hehe">我是小标题（呵呵呵呵呵呵~）</div>
+    <div class="haha">我的小标题的说明（哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈）</div>
+</div>
+<div class="main_box clrfix"><!--main-->
+    <ul>
+        <li>
+            <div>N1级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N2级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N3级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N4级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N5级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N6级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N7级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N8级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N9级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N10级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N11级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+    <ul>
+        <li>
+            <div>N12级标题</div>
+            <div>N级标题的说明文字</div>
+        </li>
+        <li>titletitletitletitle</li>
+        <li>LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。</li>
+    </ul>
+</div>
+
+<div class="foot_box"><!--foot-->
+    <div class="foot_bg clrfix">
+        <ul class="fl">
+            <li>WEBHEHE</li>
+            <li>本网站所列开源项目文档全部由hehehehehe翻译整理，并全部遵循 CC BY 3.0协议发布。</li>
+        </ul>
+        <ul class="clrfix">
+            <li>关于</li>
+            <li>联系方式</li>
+            <li>旗下产品</li>
+            <li>赞助商</li>
+        </ul>
+    </div>
+</div>
+<div class="copy_box">
+京ICP备75375453号京公网安备7345332453
+</div>
+
+</body>
+</html>

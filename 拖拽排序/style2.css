@@ -1,0 +1,15 @@
+*{margin:0;padding: 0;}
+ul,li{list-style: none;}
+:focus{outline: none;}
+.box{width:470px;margin: 50px auto;}
+.box ul li{width:402px;height: 40px;padding-left: 28px;margin-top:10px;position:relative;}
+.box ul li i{position: absolute;top: 0;left:0;width:28px;height: 40px;}
+.box ul li i:after{content: '';position: absolute;width:3px;height: 3px;background:#ccc;left:10px;top:6px;box-shadow: 0 6px 0 #ccc,0 12px 0 #ccc,0 18px 0 #ccc,0 24px 0 #ccc,6px 0 0 #ccc, 6px 6px 0 #ccc,6px 12px 0 #ccc,6px 18px 0 #ccc,6px 24px 0 #ccc;;}
+.box ul li:hover{cursor:move;}
+.box ul li input{width: 400px;height: 38px;border:1px solid #ccc;text-indent: 10px;color: #333;}
+.box .add{display: block;text-decoration: none;background:#ececec;color: #666;border: 1px solid #ccc;height: 38px;line-height: 38px;width: 100px;text-align:center;margin-top:10px;margin-left:28px;-wibkit-transition: .3s;-moz-transition: .3s;-o-transition: .3s;-ms-transition: .3s;transition: .3s;}
+.box .add:hover{background:#35a6ea;border-color: #35a6ea;color: #fff;}
+.box ul li.placeHolder{background: #f3f3f3;width: 374px !important;margin-left:28px}
+.box ul li.placeHolder:after{display: none;}
+.close{color: #666;font-size:20px;text-align:center;width:40px;height:40px;line-height:40px;position: absolute;right: -40px;top:0;wibkit-transition: .3s;-moz-transition: .3s;-o-transition: .3s;-ms-transition: .3s;transition: .3s;}
+.close:hover{color:#35a6ea; cursor: pointer ;}

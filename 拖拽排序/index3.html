@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.dragsort-0.5.2.min.js"></script>
+		<link rel="stylesheet" href="style2.css" />
+	</head>
+
+	<body>
+		<div class="box">
+			<ul id="list">
+				<li><i></i><input type="text" placeholder="1" /></li>
+				<li><i></i><input type="text" placeholder="2" /></li>
+				<li><i></i><input type="text" placeholder="3" /></li>
+				<li><i></i><input type="text" placeholder="4" /></li>
+				<li><i></i><input type="text" placeholder="5" /></li>
+				<li><i></i><input type="text" placeholder="6" /></li>
+				<li><i></i><input type="text" placeholder="7" /></li>
+			</ul>
+			<a href="javavscript:" class="add">+ 新建选项</a>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$("#list").dragsort({
+			dragSelector: "i",
+			placeHolderTemplate: "<li class='placeHolder'></li>"
+		});
+		$('.add').click(function(){
+			var index=$('#list li').length+1;
+			$('#list').append('<li><i></i><input type="text" placeholder='+index+' /><span class="close">&times;</span></li>')
+			$('.close').click(function(){
+				$(this).parents('li').remove();
+				
+			})
+		})
+		
+
+	</script>
+
+</html>
