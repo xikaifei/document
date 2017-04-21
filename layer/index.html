@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			:focus {
+				outline: none;
+			}
+			
+			ul,
+			ol,
+			li {
+				list-style: none;
+			}
+			
+			body {
+				font-family: "微软雅黑";
+				font-size: 14px;
+			}
+			
+			.btn-box {
+				padding: 20px;
+			}
+			
+			.btn-box a {
+				display: inline-block;
+				-webkit-transition: 0.5s;
+				-moz-transition: 0.5s;
+				-o-transition: 0.5s;
+				-ms-transition: 0.5s;
+				transition: 0.5s;
+				padding: 6px 15px;
+				border-radius: 4px;
+				background-color: #00c1c8;
+				color: #fff;
+				text-decoration: none;
+				margin: 0 5px;
+			}
+			
+			.btn-box a:hover {
+				background-color: #01a4aa;
+			}
+			
+			.btn-box a:active {
+				background-color: #008b90;
+			}
+			
+			.a-box {
+				margin: 45px 30px;
+			}
+			
+			.a-box input {
+				border: 1px solid #ddd;
+				height: 32px;
+				width: 100%;
+				text-indent: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="btn-box">
+			<a href="javascript:" class="a">二级弹窗</a>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			function lay() {
+				var content1 = "<p class='a-box'><input tyep='text' name='name' placeholder='请输入用户名'/></p>"
+				var content2 = "<p class='a-box'><input tyep='password' name='password' placeholder='请输入密码'/></p>"
+				layer.open({
+					type: 1,
+					title: '请输入用户名',
+					area: ['300px', '240px'],
+					btnAlign: 'c',
+					anim: 0,
+					shadeClose: true,
+					content: content1,
+					btn: ['下一步', '取消'],
+					btn1: function(index, layero) {
+						if($('input[name="name"]').val() != '') {
+							layer.close(index);
+							layer.open({
+								type: 1,
+								title: '请输入密码',
+								area: ['300px', '240px'],
+								btnAlign: 'c',
+								anim: 0,
+								shadeClose: true,
+								content: content2,
+								btn: ['登录', '返回'],
+								btn1: function(index, layero) {
+									if($('input[name="password"]').val() != '') {
+										layer.close(index);
+										layer.msg('登录成功', { time: 1000 });
+									}
+								},
+								btn2: function() {
+									lay();
+								}
+							});
+						}
+					},
+				});
+			}
+			$('.a').click(function() {
+				lay();
+			})
+		})
+	</script>
+
+</html>
