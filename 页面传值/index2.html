@@ -8,6 +8,18 @@
 	</body>
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 	<script type="text/javascript">
-		$('body').append('<div>index1传过来的值为:'+window.location.search.slice(window.location.search.lastIndexOf("?")+1)+'</div>')
+		
+		$(function() {
+			function getQueryString(name) {
+				var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) {
+					return unescape(r[2]);
+				}
+				return null;
+			}
+			$('body').append('用户名:'+getQueryString('name')+'密码:'+getQueryString("password"))
+		})
+		
 	</script>
 </html>
