@@ -38,9 +38,9 @@
 	};
 	var mobile = new mobileMedia({
 		minWidth: 320, //设置最小窗口 
-		maxWidth: 750, //设置最大窗口
-		rootSize: 20, //设置根字体大小
-		designWidth: 640, //设计稿大小
+		maxWidth: 768, //设置最大窗口
+		rootSize: 100, //设置根字体大小
+		designWidth: 750, //设计稿大小
 		windowSize: true //是否开启窗口响应
 	});
 	mobile.mm();
